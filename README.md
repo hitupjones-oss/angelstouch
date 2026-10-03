@@ -48,7 +48,7 @@ Three forms: `callback` (drawer, every page), `contact`, and `careers` (with opt
 - **On Netlify:** works out of the box via Netlify Forms (`data-netlify="true"`). Set up email notifications in the Netlify dashboard.
 - **Anywhere else:** set `FORM_ENDPOINT` in `src/js/config.js` to a Formspree (or similar) endpoint.
 - Without JavaScript, forms post normally and land on `/thank-you/`.
-- In `npm run dev`, submissions are simulated so the success state can be previewed.
+- In `npm run dev` (or any build run with `VITE_SIMULATE_FORMS=1`), submissions are simulated so the success state can be previewed.
 
 ## Editing content
 

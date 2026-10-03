@@ -21,8 +21,8 @@ export function initForms() {
       const data = new FormData(form);
       const hasFile = [...data.values()].some((v) => v instanceof File && v.size);
       try {
-        if (import.meta.env.DEV) {
-          await new Promise((r) => setTimeout(r, 700)); // local preview: simulate success
+        if (import.meta.env.DEV || import.meta.env.VITE_SIMULATE_FORMS) {
+          await new Promise((r) => setTimeout(r, 700)); // dev server or demo build: simulate success
         } else {
           const res = await fetch(FORM_ENDPOINT || '/', {
             method: 'POST',
