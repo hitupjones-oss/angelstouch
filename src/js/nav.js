@@ -10,7 +10,7 @@ export function initHeader(lenis) {
     header.classList.toggle('is-scrolled', y > 24);
     const goingDown = y > lastY + 4;
     const goingUp = y < lastY - 4;
-    if (goingDown && y > 520 && !document.body.classList.contains('menu-open') && !header.matches(':focus-within')) {
+    if (goingDown && y > 520 && !document.body.classList.contains('menu-open') && !header.classList.contains('mega-open') && !header.matches(':focus-within')) {
       header.classList.add('is-hidden');
     } else if (goingUp || y < 520) {
       header.classList.remove('is-hidden');
@@ -60,21 +60,57 @@ export function initMobileMenu(lenis) {
   window.matchMedia('(min-width: 1100px)').addEventListener('change', (e) => e.matches && setOpen(false));
 }
 
-/** "Our care" mega menu: opens on hover (with intent delay), click, or keyboard. */
+/**
+ * "Our care" mega menu.
+ * Mouse: opens on hover with a short intent delay and closes after a grace period, so the pointer can travel
+ * from the trigger into the panel. Separate open/close timers cancel each other, so re-entering never races a close.
+ * Touch & keyboard: the trigger toggles; Escape, focus leaving or a tap outside closes it.
+ */
 export function initMegaMenu() {
+  const header = document.querySelector('[data-header]');
   document.querySelectorAll('.has-menu').forEach((item) => {
     const trigger = item.querySelector('[data-menu-trigger]');
     const menu = item.querySelector('[data-menu]');
-    let timer;
+    let openTimer;
+    let closeTimer;
+    let openedByHover = false;
+    const isOpen = () => trigger.getAttribute('aria-expanded') === 'true';
     const set = (open) => {
-      clearTimeout(timer);
+      clearTimeout(openTimer);
+      clearTimeout(closeTimer);
+      if (!open) openedByHover = false;
       trigger.setAttribute('aria-expanded', String(open));
       menu.classList.toggle('is-open', open);
+      header?.classList.toggle('mega-open', open);
     };
-    trigger.addEventListener('click', () => set(trigger.getAttribute('aria-expanded') !== 'true'));
-    item.addEventListener('pointerenter', (e) => e.pointerType === 'mouse' && (timer = setTimeout(() => set(true), 90)));
-    item.addEventListener('pointerleave', (e) => e.pointerType === 'mouse' && (clearTimeout(timer), (timer = setTimeout(() => set(false), 180))));
+
+    item.addEventListener('pointerenter', (e) => {
+      if (e.pointerType !== 'mouse') return;
+      clearTimeout(closeTimer);
+      if (!isOpen()) {
+        clearTimeout(openTimer);
+        openTimer = setTimeout(() => {
+          openedByHover = true;
+          set(true);
+        }, 80);
+      }
+    });
+    item.addEventListener('pointerleave', (e) => {
+      if (e.pointerType !== 'mouse') return;
+      clearTimeout(openTimer);
+      clearTimeout(closeTimer);
+      closeTimer = setTimeout(() => set(false), 320);
+    });
+
+    // A click right after a hover-open keeps the menu open instead of toggling it shut.
+    trigger.addEventListener('click', () => {
+      if (openedByHover) {
+        openedByHover = false;
+        set(true);
+      } else set(!isOpen());
+    });
     item.addEventListener('focusout', (e) => !item.contains(e.relatedTarget) && set(false));
-    item.addEventListener('keydown', (e) => e.key === 'Escape' && (set(false), trigger.focus()));
+    item.addEventListener('keydown', (e) => e.key === 'Escape' && isOpen() && (set(false), trigger.focus()));
+    document.addEventListener('pointerdown', (e) => isOpen() && !item.contains(e.target) && set(false));
   });
 }

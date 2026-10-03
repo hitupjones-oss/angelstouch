@@ -150,7 +150,6 @@ export default async function initFilm({ reduced }) {
   tl.fromTo(clips.caregiver, { scale: 1.08 }, { scale: 1, duration: 4, ease: 'power2.out' }, 25.4);
   tl.to($$('.film__media video:not([data-clip="caregiver"])'), { autoAlpha: 0, duration: 0.6 }, 25.4);
   tl.fromTo($('.film__end-glow'), { autoAlpha: 0, scale: 0.6, xPercent: -50, yPercent: -50 }, { autoAlpha: 1, scale: 1, xPercent: -50, yPercent: -50, duration: 2.2 }, 25.5); // GSAP owns transforms, so centering lives here
-  tl.to($$('.film__bars span'), { scaleY: 0, duration: 1.6, ease: 'expo.inOut' }, 25.5);
   tl.set($('[data-scene="end"]'), { autoAlpha: 1 }, 25.6);
   const wipe = $('.film__logo-wipe');
   tl.fromTo(wipe, { attr: { width: 0 } }, { attr: { width: 2400 }, duration: 1.9, ease: 'power2.inOut' }, 25.7);
@@ -230,7 +229,6 @@ export default async function initFilm({ reduced }) {
     replayBtn.hidden = true;
     toggleBtn.hidden = false;
     if (!clips.painting.src) Object.values(clips).forEach((v) => !v.src && (v.src = sourceFor(v.dataset.src)));
-    gsap.set($$('.film__bars span'), { scaleY: 1 });
     tl.restart();
     state.userPaused = false;
     setPlaying(true);

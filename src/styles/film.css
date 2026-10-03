@@ -104,23 +104,6 @@
   80% { transform: translate(6%, 5%); }
   100% { transform: translate(0, 0); }
 }
-.film__bars span {
-  position: absolute;
-  left: 0;
-  right: 0;
-  z-index: 6;
-  height: clamp(20px, 6.5svh, 64px);
-  background: #05080f;
-  pointer-events: none;
-}
-.film__bars span:first-child {
-  top: 0;
-  transform-origin: top;
-}
-.film__bars span:last-child {
-  bottom: 0;
-  transform-origin: bottom;
-}
 
 /* Scenes */
 .film__scene {
@@ -371,15 +354,11 @@
   position: absolute;
   left: var(--gutter);
   right: var(--gutter);
-  bottom: calc(clamp(20px, 6.5svh, 64px) + 14px);
+  bottom: clamp(18px, 3svh, 32px);
   z-index: 7;
   display: flex;
   align-items: flex-end;
   gap: var(--space-4);
-  transition: bottom 1.6s var(--ease-in-out);
-}
-.film.is-finished .film__controls {
-  bottom: 22px;
 }
 .film__chapters {
   list-style: none;
