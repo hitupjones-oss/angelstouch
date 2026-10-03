@@ -1,0 +1,84 @@
+<!-- Sticky call-to-action: floating pill on desktop, two-button dock on phones -->
+<div class="cta-dock" data-dock>
+  <a class="cta-dock__call" href="tel:+19207108101">
+    <svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>
+    <span>Call now</span>
+  </a>
+  <button class="cta-dock__main" type="button" data-open-callback>
+    <span class="cta-dock__pulse" aria-hidden="true"></span>
+    <svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>
+    <span>Call Me Back</span>
+  </button>
+</div>
+
+<!-- Call Me Back drawer -->
+<div class="drawer" id="callback" data-drawer hidden>
+  <div class="drawer__scrim" data-close-callback></div>
+  <section class="drawer__panel" role="dialog" aria-modal="true" aria-labelledby="callback-title" tabindex="-1">
+    <button class="drawer__close" type="button" data-close-callback aria-label="Close">
+      <svg class="icon" aria-hidden="true"><use href="#i-close"/></svg>
+    </button>
+
+    <div class="drawer__body" data-form-wrap>
+      <header class="drawer__head">
+        <p class="eyebrow">Call Me Back</p>
+        <h2 id="callback-title" class="h3">Leave your number. We’ll call you&nbsp;— usually the same business day.</h2>
+      </header>
+
+      <form class="form" name="callback" method="POST" action="/thank-you/" data-netlify="true" netlify-honeypot="company" data-form>
+        <input type="hidden" name="form-name" value="callback">
+        <p class="form__hp" aria-hidden="true"><label>Company <input name="company" tabindex="-1" autocomplete="off"></label></p>
+
+        <fieldset class="form__field">
+          <legend class="form__label">I’m reaching out about</legend>
+          <div class="segmented">
+            <label><input type="radio" name="topic" value="Care for a loved one" checked><span>Care for a loved one</span></label>
+            <label><input type="radio" name="topic" value="Joining the team"><span>Joining the team</span></label>
+          </div>
+        </fieldset>
+
+        <div class="form__field">
+          <label class="form__label" for="cb-name">Your name</label>
+          <input class="input" id="cb-name" name="name" type="text" autocomplete="name" required>
+        </div>
+        <div class="form__row">
+          <div class="form__field">
+            <label class="form__label" for="cb-phone">Phone</label>
+            <input class="input" id="cb-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required>
+          </div>
+          <div class="form__field">
+            <label class="form__label" for="cb-email">Email <span class="form__opt">optional</span></label>
+            <input class="input" id="cb-email" name="email" type="email" autocomplete="email">
+          </div>
+        </div>
+
+        <fieldset class="form__field">
+          <legend class="form__label">Best way to connect</legend>
+          <div class="segmented segmented--3">
+            <label><input type="radio" name="contact_method" value="Phone call" checked><span>Phone</span></label>
+            <label><input type="radio" name="contact_method" value="Email"><span>Email</span></label>
+            <label><input type="radio" name="contact_method" value="Video call (Zoom)" data-video-option><span>Video call</span></label>
+          </div>
+        </fieldset>
+
+        <div class="form__field">
+          <label class="form__label" for="cb-msg">Anything we should know? <span class="form__opt">optional</span></label>
+          <textarea class="input" id="cb-msg" name="message" rows="3"></textarea>
+        </div>
+
+        <button class="btn btn--primary btn--block btn--lg" type="submit">
+          Request my call <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg>
+        </button>
+        <p class="form__note">Prefer to talk now? Call <a href="tel:+19207108101">(920) 710-8101</a>. Video calls work on any phone, tablet or computer — no Zoom account needed.</p>
+        <p class="form__error" role="alert" hidden>Something went wrong sending your request. Please call us at <a href="tel:+19207108101">(920) 710-8101</a>.</p>
+      </form>
+    </div>
+
+    <div class="form-success" data-form-success hidden tabindex="-1">
+      <svg class="form-success__check" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="29"/><path d="m20 33 8 8 16-17"/></svg>
+      <h2 class="h3">Thank you — we’ll be in touch soon.</h2>
+      <p class="muted">A member of our team will reach out within the same business day. If it’s urgent, call <a href="tel:+19207108101">(920) 710-8101</a>.</p>
+      <button class="btn btn--ghost" type="button" data-close-callback>Close</button>
+    </div>
+  </section>
+</div>

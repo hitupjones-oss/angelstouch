@@ -1,0 +1,34 @@
+# Apache: 301 redirects from the previous site + sensible caching
+RewriteEngine On
+ErrorDocument 404 /404.html
+
+RewriteRule "^home/?$" "/" [R=301,L]
+RewriteRule "^hibu\-video\-splash/?$" "/" [R=301,L]
+RewriteRule "^assisted\-living\-memory\-care/?$" "/memory-care/" [R=301,L]
+RewriteRule "^assisted\-living\-activities/?$" "/activities/" [R=301,L]
+RewriteRule "^assisted\-living\-nutrition/?$" "/dining/" [R=301,L]
+RewriteRule "^assisted\-living\-space\-layouts/?$" "/living-spaces/" [R=301,L]
+RewriteRule "^employment\-and\-careers/?$" "/careers/" [R=301,L]
+RewriteRule "^faqs/?$" "/faq/" [R=301,L]
+RewriteRule "^reviews/?$" "/#recognition" [R=301,L,NE]
+RewriteRule "^request\-call\-back\-form/?$" "/contact/" [R=301,L]
+RewriteRule "^blog/?$" "/journal/" [R=301,L]
+RewriteRule "^feed/atom/?$" "/journal/" [R=301,L]
+RewriteRule "^feed/rss2/?$" "/journal/" [R=301,L]
+RewriteRule "^3\-things\-to\-look\-for\-in\-assisted\-living\-facilities/?$" "/journal/3-things-to-look-for-in-assisted-living-facilities/" [R=301,L]
+RewriteRule "^4\-questions\-to\-ask\-an\-assisted\-living\-facility/?$" "/journal/4-questions-to-ask-an-assisted-living-facility/" [R=301,L]
+RewriteRule "^7\-ways\-memory\-care\-programs\-support\-residents\-with\-dementia\-or\-alzheimers/?$" "/journal/7-ways-memory-care-programs-support-residents-with-dementia-or-alzheimers/" [R=301,L]
+RewriteRule "^how\-a\-memory\-care\-facility\-helps\-its\-residents/?$" "/journal/how-a-memory-care-facility-helps-its-residents/" [R=301,L]
+RewriteRule "^how\-to\-find\-the\-perfect\-assisted\-living\-facility/?$" "/journal/how-to-find-the-perfect-assisted-living-facility/" [R=301,L]
+RewriteRule "^reasons\-to\-choose\-assisted\-living/?$" "/journal/reasons-to-choose-assisted-living/" [R=301,L]
+RewriteRule "^why\-a\-local\-assisted\-living\-facility\-is\-a\-better\-option\-for\-your\-loved\-one/?$" "/journal/why-a-local-assisted-living-facility-is-a-better-option-for-your-loved-one/" [R=301,L]
+RewriteRule "^why\-a\-local\-assisted\-living\ facility\-is\-a\-better\ option\-for\-your\-loved\-one/?$" "/journal/why-a-local-assisted-living-facility-is-a-better-option-for-your-loved-one/" [R=301,L]
+
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType video/mp4 "access plus 1 year"
+  ExpiresByType font/woff2 "access plus 1 year"
+  ExpiresByType text/css "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
+</IfModule>
