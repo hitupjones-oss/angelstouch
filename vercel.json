@@ -1,4 +1,9 @@
 {
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": "vite",
+  "installCommand": "npm ci",
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
   "cleanUrls": false,
   "trailingSlash": true,
   "redirects": [
@@ -8,7 +13,17 @@
       "permanent": true
     },
     {
+      "source": "/home/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
       "source": "/hibu-video-splash",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/hibu-video-splash/",
       "destination": "/",
       "permanent": true
     },
@@ -18,7 +33,17 @@
       "permanent": true
     },
     {
+      "source": "/assisted-living-memory-care/",
+      "destination": "/memory-care/",
+      "permanent": true
+    },
+    {
       "source": "/assisted-living-activities",
+      "destination": "/activities/",
+      "permanent": true
+    },
+    {
+      "source": "/assisted-living-activities/",
       "destination": "/activities/",
       "permanent": true
     },
@@ -28,7 +53,17 @@
       "permanent": true
     },
     {
+      "source": "/assisted-living-nutrition/",
+      "destination": "/dining/",
+      "permanent": true
+    },
+    {
       "source": "/assisted-living-space-layouts",
+      "destination": "/living-spaces/",
+      "permanent": true
+    },
+    {
+      "source": "/assisted-living-space-layouts/",
       "destination": "/living-spaces/",
       "permanent": true
     },
@@ -38,7 +73,17 @@
       "permanent": true
     },
     {
+      "source": "/employment-and-careers/",
+      "destination": "/careers/",
+      "permanent": true
+    },
+    {
       "source": "/faqs",
+      "destination": "/faq/",
+      "permanent": true
+    },
+    {
+      "source": "/faqs/",
       "destination": "/faq/",
       "permanent": true
     },
@@ -48,7 +93,17 @@
       "permanent": true
     },
     {
+      "source": "/reviews/",
+      "destination": "/#recognition",
+      "permanent": true
+    },
+    {
       "source": "/request-call-back-form",
+      "destination": "/contact/",
+      "permanent": true
+    },
+    {
+      "source": "/request-call-back-form/",
       "destination": "/contact/",
       "permanent": true
     },
@@ -58,7 +113,17 @@
       "permanent": true
     },
     {
+      "source": "/blog/",
+      "destination": "/journal/",
+      "permanent": true
+    },
+    {
       "source": "/feed/atom",
+      "destination": "/journal/",
+      "permanent": true
+    },
+    {
+      "source": "/feed/atom/",
       "destination": "/journal/",
       "permanent": true
     },
@@ -68,7 +133,17 @@
       "permanent": true
     },
     {
+      "source": "/feed/rss2/",
+      "destination": "/journal/",
+      "permanent": true
+    },
+    {
       "source": "/3-things-to-look-for-in-assisted-living-facilities",
+      "destination": "/journal/3-things-to-look-for-in-assisted-living-facilities/",
+      "permanent": true
+    },
+    {
+      "source": "/3-things-to-look-for-in-assisted-living-facilities/",
       "destination": "/journal/3-things-to-look-for-in-assisted-living-facilities/",
       "permanent": true
     },
@@ -78,7 +153,17 @@
       "permanent": true
     },
     {
+      "source": "/4-questions-to-ask-an-assisted-living-facility/",
+      "destination": "/journal/4-questions-to-ask-an-assisted-living-facility/",
+      "permanent": true
+    },
+    {
       "source": "/7-ways-memory-care-programs-support-residents-with-dementia-or-alzheimers",
+      "destination": "/journal/7-ways-memory-care-programs-support-residents-with-dementia-or-alzheimers/",
+      "permanent": true
+    },
+    {
+      "source": "/7-ways-memory-care-programs-support-residents-with-dementia-or-alzheimers/",
       "destination": "/journal/7-ways-memory-care-programs-support-residents-with-dementia-or-alzheimers/",
       "permanent": true
     },
@@ -88,7 +173,17 @@
       "permanent": true
     },
     {
+      "source": "/how-a-memory-care-facility-helps-its-residents/",
+      "destination": "/journal/how-a-memory-care-facility-helps-its-residents/",
+      "permanent": true
+    },
+    {
       "source": "/how-to-find-the-perfect-assisted-living-facility",
+      "destination": "/journal/how-to-find-the-perfect-assisted-living-facility/",
+      "permanent": true
+    },
+    {
+      "source": "/how-to-find-the-perfect-assisted-living-facility/",
       "destination": "/journal/how-to-find-the-perfect-assisted-living-facility/",
       "permanent": true
     },
@@ -98,12 +193,27 @@
       "permanent": true
     },
     {
+      "source": "/reasons-to-choose-assisted-living/",
+      "destination": "/journal/reasons-to-choose-assisted-living/",
+      "permanent": true
+    },
+    {
       "source": "/why-a-local-assisted-living-facility-is-a-better-option-for-your-loved-one",
       "destination": "/journal/why-a-local-assisted-living-facility-is-a-better-option-for-your-loved-one/",
       "permanent": true
     },
     {
+      "source": "/why-a-local-assisted-living-facility-is-a-better-option-for-your-loved-one/",
+      "destination": "/journal/why-a-local-assisted-living-facility-is-a-better-option-for-your-loved-one/",
+      "permanent": true
+    },
+    {
       "source": "/why-a-local-assisted-living%20facility-is-a-better%20option-for-your-loved-one",
+      "destination": "/journal/why-a-local-assisted-living-facility-is-a-better-option-for-your-loved-one/",
+      "permanent": true
+    },
+    {
+      "source": "/why-a-local-assisted-living%20facility-is-a-better%20option-for-your-loved-one/",
       "destination": "/journal/why-a-local-assisted-living-facility-is-a-better-option-for-your-loved-one/",
       "permanent": true
     }

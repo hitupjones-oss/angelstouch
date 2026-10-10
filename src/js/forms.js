@@ -4,6 +4,8 @@ import { FORM_ENDPOINT } from './config.js';
  * Progressive-enhancement form handling. Without JS, forms post normally (Netlify Forms → /thank-you/).
  * With JS, they submit in place and swap to an animated success state.
  */
+const DEMO = !!import.meta.env.VITE_SIMULATE_FORMS;
+
 export function initForms() {
   document.querySelectorAll('form[data-form]').forEach((form) => {
     const wrap = form.closest('[data-form-wrap]');
@@ -21,7 +23,7 @@ export function initForms() {
       const data = new FormData(form);
       const hasFile = [...data.values()].some((v) => v instanceof File && v.size);
       try {
-        if (import.meta.env.DEV || import.meta.env.VITE_SIMULATE_FORMS) {
+        if (import.meta.env.DEV || DEMO) {
           await new Promise((r) => setTimeout(r, 700)); // dev server or demo build: simulate success
         } else {
           const res = await fetch(FORM_ENDPOINT || '/', {
@@ -34,6 +36,11 @@ export function initForms() {
         if (wrap) wrap.hidden = true;
         else form.hidden = true;
         if (success) {
+          if (DEMO) {
+            // Be honest on preview deployments: nothing was sent.
+            const msg = success.querySelector('p');
+            if (msg) msg.innerHTML = 'This is a preview of the new website, so your request wasn’t sent. To reach the team today, call <a href="tel:+19207108101">(920) 710-8101</a>.';
+          }
           success.hidden = false;
           success.focus({ preventScroll: true });
         }

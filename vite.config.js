@@ -2,6 +2,7 @@ import { defineConfig } from 'vite';
 import { readFileSync, readdirSync, statSync, existsSync } from 'node:fs';
 import { resolve, dirname, relative, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { FORM_ENDPOINT } from './src/js/config.js';
 
 const root = dirname(fileURLToPath(import.meta.url));
 const partialsDir = resolve(root, 'src/partials');
@@ -97,8 +98,16 @@ function htmlPartials() {
   };
 }
 
+/*
+ * Forms need somewhere to post. Netlify Forms works with no setup; any other host needs FORM_ENDPOINT
+ * (src/js/config.js). On Vercel with no endpoint configured, forms run in demo mode: they show the
+ * confirmation but say plainly that nothing was sent. VITE_SIMULATE_FORMS=1 forces demo mode anywhere.
+ */
+const simulateForms = process.env.VITE_SIMULATE_FORMS || (process.env.VERCEL && !FORM_ENDPOINT ? '1' : '');
+
 export default defineConfig({
   appType: 'mpa',
+  define: { 'import.meta.env.VITE_SIMULATE_FORMS': JSON.stringify(simulateForms) },
   plugins: [htmlPartials()],
   build: {
     target: 'es2020',

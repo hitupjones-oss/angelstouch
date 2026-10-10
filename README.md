@@ -41,14 +41,29 @@ All old URLs **301-redirect** to their new homes. Equivalent rules ship for each
 **Call Me Back** is available on every page: a floating pill on desktop and a two-button dock (Call now / Call Me Back) on phones.
 It opens a short form drawer instead of sending people to a separate page. Link to `/#call-me-back` to open it directly.
 
+## Deploying on Vercel
+
+The repo is ready for Vercel's GitHub integration; `vercel.json` sets the build (`npm run build` → `dist/`), trailing-slash URLs,
+caching headers and 301s from every old URL (each matches with or without a trailing slash).
+
+1. In Vercel: **Add New → Project → Import** `hitupjones-oss/angelstouch`.
+2. Leave the detected settings as they are (Framework: Vite; everything else comes from `vercel.json`) and click **Deploy**.
+3. Every push redeploys; pull requests get their own preview URLs.
+
+Vercel builds the repository's **production branch** (set under Project → Settings → Git). Point it at the branch that holds
+the site — `main` once the redesign PR is merged.
+
 ## Forms
 
 Three forms: `callback` (drawer, every page), `contact`, and `careers` (with optional resume upload).
 
 - **On Netlify:** works out of the box via Netlify Forms (`data-netlify="true"`). Set up email notifications in the Netlify dashboard.
-- **Anywhere else:** set `FORM_ENDPOINT` in `src/js/config.js` to a Formspree (or similar) endpoint.
+- **On Vercel or anywhere else:** set `FORM_ENDPOINT` in `src/js/config.js` to a Formspree (or similar) endpoint.
+- **Demo mode:** on Vercel with no `FORM_ENDPOINT`, forms show their confirmation but say plainly that nothing was sent and give
+  the phone number — right for a pitch or preview, and it switches off automatically once an endpoint is set.
+  `VITE_SIMULATE_FORMS=1` forces demo mode on any build.
 - Without JavaScript, forms post normally and land on `/thank-you/`.
-- In `npm run dev` (or any build run with `VITE_SIMULATE_FORMS=1`), submissions are simulated so the success state can be previewed.
+- In `npm run dev`, submissions are simulated so the success state can be previewed.
 
 ## Editing content
 
