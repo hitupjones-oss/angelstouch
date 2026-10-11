@@ -1,0 +1,40 @@
+@import './tokens.css';
+@import './base.css';
+@import './layout.css';
+@import './components.css';
+@import './film.css';
+@import './home.css';
+@import './pages.css';
+
+/* ==========================================================================
+   Reveal states — elements start hidden only when JS is running, and a
+   failsafe shows them if motion never initialises.
+   ========================================================================== */
+
+.js [data-reveal]:not([data-reveal='clip']) {
+  visibility: hidden;
+}
+.js [data-reveal='clip'] {
+  clip-path: inset(14% 10% 14% 10% round 40px);
+}
+.js:not(.motion-ready) [data-reveal] {
+  animation: reveal-failsafe 0s 3s forwards;
+}
+@keyframes reveal-failsafe {
+  to {
+    visibility: visible;
+    clip-path: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .js [data-reveal]:not([data-reveal='clip']) {
+    visibility: visible;
+  }
+  .js [data-reveal='clip'] {
+    clip-path: none;
+  }
+}
+
+.split-line {
+  display: block;
+}

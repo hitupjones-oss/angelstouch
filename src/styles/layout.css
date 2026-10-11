@@ -1,0 +1,141 @@
+/* ==========================================================================
+   Layout — containers, sections, themes, grids
+   ========================================================================== */
+
+.container {
+  width: min(100% - var(--gutter) * 2, var(--max));
+  margin-inline: auto;
+}
+.container--narrow {
+  width: min(100% - var(--gutter) * 2, 880px);
+  margin-inline: auto;
+}
+.container--wide {
+  width: min(100% - var(--gutter) * 2, 1520px);
+  margin-inline: auto;
+}
+
+.section {
+  position: relative;
+  padding-block: var(--space-9);
+}
+.section--tight {
+  padding-block: var(--space-8);
+}
+.section + .section--flush-top,
+.section--flush-top {
+  padding-top: 0;
+}
+
+/* Themes */
+.theme-linen {
+  background: var(--linen);
+}
+.theme-white {
+  background: var(--white);
+}
+.theme-midnight,
+.theme-blue {
+  --text: #eef2fb;
+  --text-muted: #b9c4dc;
+  --heading: #ffffff;
+  --line: rgb(255 255 255 / 0.12);
+  --line-strong: rgb(255 255 255 / 0.24);
+  --eyebrow: var(--blue-200);
+  --accent-ink: var(--blue-200);
+  --focus: var(--blue-200);
+  color: var(--text);
+}
+.theme-midnight {
+  background:
+    radial-gradient(120% 80% at 80% 0%, rgb(43 89 195 / 0.35), transparent 60%),
+    radial-gradient(80% 60% at 0% 100%, rgb(242 169 127 / 0.12), transparent 60%),
+    var(--midnight);
+}
+.theme-blue {
+  background:
+    radial-gradient(100% 90% at 100% 0%, rgb(255 255 255 / 0.16), transparent 55%),
+    linear-gradient(160deg, var(--blue-600), var(--blue-800));
+  --accent-ink: #ffffff;
+}
+
+/* Section heading block */
+.section-head {
+  display: grid;
+  gap: var(--space-5);
+  margin-bottom: var(--space-8);
+  max-width: 820px;
+}
+.section-head--center {
+  margin-inline: auto;
+  text-align: center;
+  justify-items: center;
+}
+.section-head--split {
+  max-width: none;
+  grid-template-columns: 1fr;
+  align-items: end;
+}
+@media (min-width: 900px) {
+  .section-head--split {
+    grid-template-columns: 1.2fr 1fr;
+    gap: var(--space-8);
+  }
+}
+
+/* Two-column split used across pages */
+.split {
+  display: grid;
+  gap: var(--space-7);
+  align-items: center;
+}
+@media (min-width: 900px) {
+  .split {
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(3rem, 6vw, 7rem);
+  }
+  .split--flip > :first-child {
+    order: 2;
+  }
+  .split--wide-media {
+    grid-template-columns: 1.15fr 0.85fr;
+  }
+}
+
+.stack > * + * {
+  margin-top: var(--flow, 1.25em);
+}
+
+.grid-2,
+.grid-3,
+.grid-4 {
+  display: grid;
+  gap: var(--space-5);
+}
+@media (min-width: 700px) {
+  .grid-2,
+  .grid-3,
+  .grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 1024px) {
+  .grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .grid-4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.hairline {
+  height: 1px;
+  background: var(--line);
+  border: 0;
+  margin: 0;
+}
+
+main {
+  display: block;
+  padding-bottom: var(--dock-h);
+}

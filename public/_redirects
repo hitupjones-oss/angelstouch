@@ -1,0 +1,22 @@
+# 301 redirects from the previous Duda/hibu site (Netlify & Cloudflare Pages format)
+/home                                                                  /                                                                                301
+/hibu-video-splash                                                     /                                                                                301
+/assisted-living-memory-care                                           /memory-care/                                                                    301
+/assisted-living-activities                                            /activities/                                                                     301
+/assisted-living-nutrition                                             /dining/                                                                         301
+/assisted-living-space-layouts                                         /living-spaces/                                                                  301
+/employment-and-careers                                                /careers/                                                                        301
+/faqs                                                                  /faq/                                                                            301
+/reviews                                                               /#recognition                                                                    301
+/request-call-back-form                                                /contact/                                                                        301
+/blog                                                                  /journal/                                                                        301
+/feed/atom                                                             /journal/                                                                        301
+/feed/rss2                                                             /journal/                                                                        301
+/3-things-to-look-for-in-assisted-living-facilities                    /journal/3-things-to-look-for-in-assisted-living-facilities/                     301
+/4-questions-to-ask-an-assisted-living-facility                        /journal/4-questions-to-ask-an-assisted-living-facility/                         301
+/7-ways-memory-care-programs-support-residents-with-dementia-or-alzheimers /journal/7-ways-memory-care-programs-support-residents-with-dementia-or-alzheimers/ 301
+/how-a-memory-care-facility-helps-its-residents                        /journal/how-a-memory-care-facility-helps-its-residents/                         301
+/how-to-find-the-perfect-assisted-living-facility                      /journal/how-to-find-the-perfect-assisted-living-facility/                       301
+/reasons-to-choose-assisted-living                                     /journal/reasons-to-choose-assisted-living/                                      301
+/why-a-local-assisted-living-facility-is-a-better-option-for-your-loved-one /journal/why-a-local-assisted-living-facility-is-a-better-option-for-your-loved-one/ 301
+/why-a-local-assisted-living%20facility-is-a-better%20option-for-your-loved-one /journal/why-a-local-assisted-living-facility-is-a-better-option-for-your-loved-one/ 301

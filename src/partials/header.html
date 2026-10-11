@@ -1,0 +1,90 @@
+<!-- @include icons -->
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header" data-header>
+  <div class="site-header__inner">
+    <a class="site-header__logo" href="/" aria-label="Angels Touch Assisted Living &amp; Memory Care — home">
+      <!-- @include logo -->
+    </a>
+
+    <nav class="site-nav" aria-label="Primary">
+      <ul class="site-nav__list">
+        <li class="site-nav__item has-menu" data-nav-group="/memory-care/,/activities/,/dining/,/living-spaces/">
+          <button class="site-nav__link" type="button" aria-expanded="false" aria-controls="care-menu" data-menu-trigger>
+            Our care <svg class="icon icon--xs" aria-hidden="true"><use href="#i-chevron"/></svg>
+          </button>
+          <div class="mega" id="care-menu" data-menu>
+            <div class="mega__inner">
+              <a class="mega__card" href="/memory-care/" data-nav="/memory-care/">
+                <span class="mega__media"><img src="/media/img/memory-album-480.webp" alt="" width="480" height="600" loading="lazy" decoding="async"></span>
+                <span class="mega__num label">01</span>
+                <span class="mega__title">Memory care</span>
+                <span class="mega__text">Our specialty — safe, structured &amp; deeply personal.</span>
+              </a>
+              <a class="mega__card" href="/activities/" data-nav="/activities/">
+                <span class="mega__media"><img src="/media/img/activities-painting-480.webp" alt="" width="480" height="270" loading="lazy" decoding="async"></span>
+                <span class="mega__num label">02</span>
+                <span class="mega__title">Activities</span>
+                <span class="mega__text">Art, music, outings &amp; a full-time activity team.</span>
+              </a>
+              <a class="mega__card" href="/dining/" data-nav="/dining/">
+                <span class="mega__media"><img src="/media/img/dining-plated-480.webp" alt="" width="480" height="270" loading="lazy" decoding="async"></span>
+                <span class="mega__num label">03</span>
+                <span class="mega__title">Dining</span>
+                <span class="mega__text">Chef-made meals, from scratch, for every diet.</span>
+              </a>
+              <a class="mega__card" href="/living-spaces/" data-nav="/living-spaces/">
+                <span class="mega__media"><img src="/media/img/residence-exterior-480.webp" alt="" width="480" height="270" loading="lazy" decoding="async"></span>
+                <span class="mega__num label">04</span>
+                <span class="mega__title">Living spaces</span>
+                <span class="mega__text">Private suites, each with its own bath &amp; shower.</span>
+              </a>
+            </div>
+          </div>
+        </li>
+        <li class="site-nav__item"><a class="site-nav__link" href="/about/" data-nav="/about/">About</a></li>
+        <li class="site-nav__item"><a class="site-nav__link" href="/careers/" data-nav="/careers/">Careers</a></li>
+        <li class="site-nav__item"><a class="site-nav__link" href="/faq/" data-nav="/faq/">FAQ</a></li>
+        <li class="site-nav__item"><a class="site-nav__link" href="/contact/" data-nav="/contact/">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="site-header__actions">
+      <a class="header-phone" href="tel:+19207108101">
+        <svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>
+        <span>(920) 710-8101</span>
+      </a>
+      <button class="btn btn--primary btn--sm header-cta" type="button" data-open-callback>Call Me Back</button>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" data-menu-toggle>
+        <span class="menu-toggle__bar"></span>
+        <span class="menu-toggle__bar"></span>
+        <span class="sr-only">Menu</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobile-menu" data-mobile-menu hidden>
+  <nav class="mobile-menu__nav container" aria-label="Mobile">
+    <p class="label mobile-menu__group">Our care</p>
+    <ul class="mobile-menu__list mobile-menu__list--care">
+      <li><a href="/memory-care/" data-nav="/memory-care/"><span class="label">01</span>Memory care</a></li>
+      <li><a href="/activities/" data-nav="/activities/"><span class="label">02</span>Activities</a></li>
+      <li><a href="/dining/" data-nav="/dining/"><span class="label">03</span>Dining</a></li>
+      <li><a href="/living-spaces/" data-nav="/living-spaces/"><span class="label">04</span>Living spaces</a></li>
+    </ul>
+    <ul class="mobile-menu__list mobile-menu__list--sub">
+      <li><a href="/about/" data-nav="/about/">About</a></li>
+      <li><a href="/careers/" data-nav="/careers/">Careers</a></li>
+      <li><a href="/faq/" data-nav="/faq/">FAQ</a></li>
+      <li><a href="/journal/" data-nav="/journal/">Journal</a></li>
+      <li><a href="/contact/" data-nav="/contact/">Contact</a></li>
+    </ul>
+    <div class="mobile-menu__foot">
+      <a class="btn btn--ghost btn--block" href="tel:+19207108101">
+        <svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg> (920) 710-8101
+      </a>
+      <p class="label muted">Tours evenings &amp; weekends by appointment</p>
+    </div>
+  </nav>
+</div>
