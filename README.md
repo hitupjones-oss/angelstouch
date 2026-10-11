@@ -3,6 +3,8 @@
 A ground-up redesign of [angelstouchcbrf.com](https://www.angelstouchcbrf.com): a cinematic, accessible, mobile-first
 static site with an intro title film, an interactive Three.js "Circle of Care", and Apple-style scroll choreography.
 
+**Live site:** [angelstouch-three.vercel.app](https://angelstouch-three.vercel.app/) — deployed on Vercel from this repo; every push redeploys.
+
 - **Stack:** Vite (multi-page) · vanilla JS · GSAP + ScrollTrigger + SplitText · Lenis smooth scroll · Three.js · self-hosted fonts
 - **Output:** plain static files in `dist/` — host anywhere (Netlify, Vercel, Cloudflare Pages, Apache/cPanel)
 - **Brand:** see [`docs/brand-guide.md`](docs/brand-guide.md) · **Media sources & prompts:** see [`docs/media.md`](docs/media.md)
